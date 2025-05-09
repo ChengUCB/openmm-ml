@@ -8,12 +8,17 @@ Run MACE-LES using OpenMM with the following steps.
 export CONDA_OVERRIDE_CUDA=11.8
 ```
 
-
 ## **Clone Repositories**
 
 ```bash
 git clone https://github.com/ChengUCB/mace.git mace_les
 git clone https://github.com/ChengUCB/les.git
+
+cd mace_les
+pip install -e .
+cd ../les
+pip install -e .
+
 ```
 ---
 
@@ -40,17 +45,6 @@ conda activate mace-les-openmm
 ```
 
 
-## **Install Required Packages**
-
-```bash
-pip install git+https://github.com/choderalab/mpiplus.git
-cd mace_les
-pip install -e .
-cd ../les
-pip install -e .
-pip install git+git@github.com:ChengUCB/openmm-ml.git
-pip install git+https://github.com/jharrymoore/openmmtools.git@development
-```
 
 
 ---
