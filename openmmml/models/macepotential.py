@@ -37,9 +37,9 @@ class MACEPotentialImplFactory(MLPotentialImplFactory):
     """This is the factory that creates MACEPotentialImpl objects."""
 
     def createImpl(
-        self, name: str, modelPath: Optional[str] = None, **args
+        self, name: str, model_path: Optional[str] = None, **args
     ) -> MLPotentialImpl:
-        return MACEPotentialImpl(name, modelPath)
+        return MACEPotentialImpl(name, model_path)
 
 
 class MACEPotentialImpl(MLPotentialImpl):
@@ -57,7 +57,7 @@ class MACEPotentialImpl(MLPotentialImpl):
 
     To use a locally trained MACE model, provide the path to the model file. For example:
 
-    >>> potential = MLPotential('mace', modelPath='MACE.model')
+    >>> potential = MLPotential('mace', model_path='MACE.model')
 
     During system creation, you can optionally specify the precision of the model using the
     ``precision`` keyword argument. Supported options are 'single' and 'double'. For example:
@@ -81,11 +81,11 @@ class MACEPotentialImpl(MLPotentialImpl):
     ----------
     name : str
         The name of the MACE model.
-    modelPath : str
+    model_path : str
         The path to the locally trained MACE model if ``name`` is 'mace'.
     """
 
-    def __init__(self, name: str, modelPath) -> None:
+    def __init__(self, name: str, model_path) -> None:
         """
         Initialize the MACEPotentialImpl.
 
@@ -94,11 +94,11 @@ class MACEPotentialImpl(MLPotentialImpl):
         name : str
             The name of the MACE model.
             Options include 'mace-off23-small', 'mace-off23-medium', 'mace-off23-large', and 'mace'.
-        modelPath : str, optional
+        model_path : str, optional
             The path to the locally trained MACE model if ``name`` is 'mace'.
         """
         self.name = name
-        self.modelPath = modelPath
+        self.model_path = model_path
 
     def addForces(
         self,
@@ -169,10 +169,10 @@ class MACEPotentialImpl(MLPotentialImpl):
             ), f"Unsupported MACE model: '{self.name}'. Available MACE-OFF23 models are 'mace-off23-small', 'mace-off23-medium', 'mace-off23-large'"
             model = mace_off(model=size, device="cpu", return_raw_model=True)
         elif self.name == "mace":
-            if self.modelPath is not None:
-                model = torch.load(self.modelPath, map_location="cpu")
+            if self.model_path is not None:
+                model = torch.load(self.model_path, map_location="cpu")
             else:
-                raise ValueError("No modelPath provided for local MACE model.")
+                raise ValueError("No model_path provided for local MACE model.")
         else:
             raise ValueError(f"Unsupported MACE model: {self.name}")
 
