@@ -21,8 +21,10 @@ git clone https://github.com/ChengUCB/les.git
 
 ## **Code Updates Needed**
 
+!!! You need to update the mace code in order to run MD with openMM. (2025-05-09)
+To-do, update the mace branch accordingly.
 
-- **`mace/modules/models.py` (around line 669):**
+- **`mace_les/mace/modules/models.py` (around line 669):**
 
 ```python
 les_energy_opt = les_result['E_lr']
@@ -37,12 +39,13 @@ else:
 ## **Create and Activate Conda Environment**
 
 ```bash
+mamba env create -f mace-les-openmm.yml
+conda activate mace-les-openmm
+
 cd mace_les
 pip install -e .
 cd ../les
 pip install -e .
-mamba env create -f mace-les-openmm.yml
-conda activate mace-les-openmm
 ```
 
 
