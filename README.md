@@ -14,10 +14,7 @@ export CONDA_OVERRIDE_CUDA=11.8
 git clone https://github.com/ChengUCB/mace.git mace_les
 git clone https://github.com/ChengUCB/les.git
 
-cd mace_les
-pip install -e .
-cd ../les
-pip install -e .
+
 
 ```
 ---
@@ -40,6 +37,10 @@ else:
 ## **Create and Activate Conda Environment**
 
 ```bash
+cd mace_les
+pip install -e .
+cd ../les
+pip install -e .
 mamba env create -f mace-les-openmm.yml
 conda activate mace-les-openmm
 ```
