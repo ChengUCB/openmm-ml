@@ -48,7 +48,7 @@ cd mace_les
 pip install -e .
 cd ../les
 pip install -e .
-pip install git+https://github.com/openmm/openmm-ml.git
+pip install git+git@github.com:ChengUCB/openmm-ml.git
 pip install git+https://github.com/jharrymoore/openmmtools.git@development
 ```
 
