@@ -1,0 +1,21 @@
+name: mace-les-openmm
+channels:
+  - conda-forge
+dependencies:
+  - pytorch=2.0.0
+  - mdtraj
+  - openmm
+  - openmm-torch
+  - openmmtools
+  - nnpops
+  - pyyaml
+  - numba
+  - rdkit
+  - openff-toolkit
+  - openmmforcefields
+  - scikit-learn
+  - pip
+  - pip:
+    - git+https://github.com/ChengUCB/openmm-ml.git
+    - git+https://github.com/jharrymoore/openmmtools.git@development
+    - git+https://github.com/choderalab/mpiplus.git
