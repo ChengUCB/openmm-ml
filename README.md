@@ -18,7 +18,6 @@ git clone https://github.com/ChengUCB/les.git
 
 ## **Code Updates Needed**
 
-text
 !!! warning "Important Update Required (2025-05-09)"
     You need to update the MACE code in order to run MD with OpenMM.
     
