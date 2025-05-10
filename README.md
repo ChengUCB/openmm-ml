@@ -11,8 +11,11 @@ export CONDA_OVERRIDE_CUDA=11.8
 ## **Clone Repositories**
 
 ```bash
+mkdir NEWFILE
+cd NEWFILE
 git clone https://github.com/ChengUCB/mace.git mace_les
 git clone https://github.com/ChengUCB/les.git
+curl -o mace-les-openmm.yml https://raw.githubusercontent.com/ChengUCB/openmm-ml/main/mace-les-openmm.yml
 ```
 ---
 
