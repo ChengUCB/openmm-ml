@@ -63,28 +63,4 @@ curl -o NPT.py https://raw.githubusercontent.com/ChengUCB/openmm-ml/main/example
 
 ## **Modifications**
 
-**Edited `macepotential.py`**
-Location:
-`/envs/mace-les-openmm/lib/python3.11/site-packages/openmmml/models/`
 
-In vim, run:
-
-```
-:%s/modelPath/model_path/g
-```
-
-
----
-
-## **NPT (Optional)**
-
-**Edit `hybrid_md.py`**
-Location:
-`/envs/mace-les-openmm/lib/python3.11/site-packages/openmmtools/openmm_torch`
-
-For example, set:
-
-```python
-friction_coeff: float = 0.1,
-integrator_name: str = "nose-hoover",
-```
