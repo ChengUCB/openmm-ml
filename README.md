@@ -50,8 +50,12 @@ cd ../les
 pip install -e .
 ```
 
+## ** Example **
+One can obtain the template script for MD simulations. 
 
-
+```bash
+curl -o NPT.py https://raw.githubusercontent.com/ChengUCB/openmm-ml/main/examples/MACE-LES/NPT.py
+```
 
 ---
 
