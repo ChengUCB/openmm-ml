@@ -18,8 +18,11 @@ git clone https://github.com/ChengUCB/les.git
 
 ## **Code Updates Needed**
 
-!!! You need to update the mace code in order to run MD with openMM. (2025-05-09)
-To-do, update the mace branch accordingly.
+text
+!!! warning "Important Update Required (2025-05-09)"
+    You need to update the MACE code in order to run MD with OpenMM.
+    
+    **To-do:** Update the MACE branch accordingly.
 
 - **`mace_les/mace/modules/models.py` (around line 669):**
 
