@@ -8,27 +8,29 @@ import les
 from e3nn.util import jit
 
 def load_model():
-    """Load and configure the MACE model for MD simulation"""
-    model = torch.load(MODEL_PATH, map_location=DEVICE)
-    
+    """Load and configure the MACE model for MD simulation"""    
     if 'MACE-OFF' in MODEL_PATH:
         return MODEL_PATH
+
+    # process the MACE-LES model 
+    model = torch.load(MODEL_PATH, map_location=DEVICE)
+
+    if hasattr(model, 'les'):
+        if hasattr(model.les, 'atomwise') and hasattr(model.les.atomwise, 'outnet') and model.les.atomwise.outnet is None:
+            r = torch.rand(10, 3, device=device)
+            model.les.atomwise(r, batch=torch.zeros(r.shape[0], dtype=torch.int64, device=device))
+
+    # add the feature 
+    model.les.use_atomwise = False
     
-    print("Model architecture:", model.les.atomwise.outnet)
-    print("Atomwise layer:", model.les.atomwise)
-    
-    model_for_md = model.to(DEVICE)
-    
-    if hasattr(model.les, 'atomwise') and model.les.atomwise.outnet is None:
-        r = torch.rand(10, 3, device=DEVICE)
-        model.les.atomwise(r, batch=torch.zeros(r.shape[0], dtype=torch.int64, device=DEVICE))
-    
-    model_for_md.les.use_atomwise = False
-    torch.save(model_for_md, './convected_model.pt')
-    return "./convected_model.pt"
+    else:
+        print("Warning: Model does not have 'les' attribute, skipping configuration")
+        
+    torch.save(model, './converted_model.pt')            
+    return "./converted_model.pt"
 
 # Model configuration
-MODEL_PATH = "../"
+MODEL_PATH = "../" # PATH of the model 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # Load model and get path
