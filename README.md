@@ -13,9 +13,6 @@ export CONDA_OVERRIDE_CUDA=11.8
 ```bash
 git clone https://github.com/ChengUCB/mace.git mace_les
 git clone https://github.com/ChengUCB/les.git
-
-
-
 ```
 ---
 
