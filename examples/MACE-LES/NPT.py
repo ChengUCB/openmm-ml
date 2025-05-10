@@ -19,9 +19,9 @@ def load_model():
     
     model_for_md = model.to(DEVICE)
     
-    if hasattr(model_for_md.les, 'atomwise') and model_for_md.les.atomwise.outnet is None:
+    if hasattr(model.les, 'atomwise') and model.les.atomwise.outnet is None:
         r = torch.rand(10, 3, device=DEVICE)
-        model_for_md.les.atomwise(r, batch=torch.zeros(r.shape[0], dtype=torch.int64, device=DEVICE))
+        model.les.atomwise(r, batch=torch.zeros(r.shape[0], dtype=torch.int64, device=DEVICE))
     
     model_for_md.les.use_atomwise = False
     torch.save(model_for_md, './convected_model.pt')
