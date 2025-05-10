@@ -50,7 +50,7 @@ cd ../les
 pip install -e .
 ```
 
-## ** Example **
+## **Example**
 One can obtain the template script for MD simulations. 
 
 ```bash
