@@ -46,9 +46,9 @@ thermostat_name = "langevin" # "nose-hoover"
 
 
 # Simulation parameters
-FRICTION_COEFF = 1.0    # 1 / unit.picosecond 
-TIMESTEP = 1.0          #  unit.femtosecond 
-OUTPUT_DIR = "output_md" # output directory
+FRICTION_COEFF = 1.0              # default: 1 / unit.picosecond; 0.1 for liquids
+TIMESTEP = 1.0                    # default: unit.femtosecond 
+OUTPUT_DIR = "output_md"          # output directory
 
 SIM_STEPS = 1000
 DUMP_INTERVAL = 100
