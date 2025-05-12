@@ -19,24 +19,6 @@ curl -o mace-les-openmm.yml https://raw.githubusercontent.com/ChengUCB/openmm-ml
 ```
 ---
 
-## **Code Updates Needed**
-
-!!! warning "Important Update Required (2025-05-09)"
-    You need to update the MACE code in order to run MD with OpenMM.
-    
-    **To-do:** Update the MACE branch accordingly.
-
-- **`mace_les/mace/modules/models.py` (around line 669):**
-
-```python
-les_energy_opt = les_result['E_lr']
-if les_energy_opt is None:
-    les_energy = torch.zeros_like(total_energy)
-else:
-    les_energy = les_energy_opt
-```
-
----
 
 ## **Create and Activate Conda Environment**
 
