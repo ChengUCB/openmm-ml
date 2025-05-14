@@ -20,8 +20,8 @@ def load_model():
             r = torch.rand(10, 3, device=device)
             model.les.atomwise(r, batch=torch.zeros(r.shape[0], dtype=torch.int64, device=device))
 
-    # add the feature 
-    model.les.use_atomwise = False
+        # add the feature 
+        model.les.use_atomwise = False
     
     else:
         print("Warning: Model does not have 'les' attribute, skipping configuration")
