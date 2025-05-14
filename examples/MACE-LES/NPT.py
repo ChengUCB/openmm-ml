@@ -68,7 +68,7 @@ system = PureSystem(
     friction_coeff=FRICTION_COEFF,
     timestep=TIMESTEP,
     nl="torch",         
-    max_n_pairs=64,     # set as -1 to use all pairs
+    max_n_pairs=-1,     # set as -1 to use all pairs
     minimiser="openmm"  # or "ase"
 ) 
 
