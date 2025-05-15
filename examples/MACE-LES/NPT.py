@@ -7,7 +7,7 @@ import mace
 import les
 from e3nn.util import jit
 
-def load_model():
+def load_model(device='cuda'):
     """Load and configure the MACE model for MD simulation"""    
     if 'MACE-OFF' in MODEL_PATH:
         return MODEL_PATH
@@ -34,7 +34,7 @@ MODEL_PATH = "../" # PATH of the model
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # Load model and get path
-MLP_path = load_model()
+MLP_path = load_model(device=DEVICE)
 
 ########################################################################################
 # Input parameters
